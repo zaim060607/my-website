@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Date Request</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebf0;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #d04a76;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            font-size: 2em;
+            color: #c64e92;
+        }
+        .heart {
+            font-size: 4em;
+            color: red;
+            animation: bounce 1s infinite;
+        }
+        .button {
+            background-color: #d04a76;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 30px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #c64e92;
+        }
+        .crying-message {
+            font-size: 2em;
+            color: #ff3f3f;
+            margin-top: 20px;
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        .crying-emoji {
+            font-size: 3em;
+            color: #ff3f3f;
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        #no-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #ff3f3f;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hey [MY CUTE BUCSY]!</h1>
+    <h2>I've been thinking... how about we go on a date?</h2>
+
+    <div class="heart">❤️</div>
+
+    <p>I'd love to spend some quality time with you, doing something special!</p>
+    <p>What do you think? Are you up for it?</p>
+
+    <!-- Yes and No Buttons -->
+    <a href="thank_you.html" class="button" id="yes-button">Yes!</a>
+    <button id="no-button" class="button" onclick="showSadness()">No...</button>
+
+    <!-- Crying Emoji and Message -->
+    <div class="crying-emoji" id="crying-emoji">😭</div>
+    <div class="crying-message" id="crying-message">Oh no, you can't do this! 😢</div>
+
+    <script>
+        function showSadness() {
+            // Hide the No button
+            document.getElementById('no-button').style.display = 'none';
+
+            // Show crying emoji and message with a fade-in effect
+            document.getElementById('crying-emoji').style.display = 'inline';
+            document.getElementById('crying-message').style.display = 'inline';
+
+            // Fade in the elements
+            setTimeout(function() {
+                document.getElementById('crying-emoji').style.opacity = 1;
+                document.getElementById('crying-message').style.opacity = 1;
+            }, 100);
+
+            // Disable the Yes button temporarily
+            document.getElementById('yes-button').href = '#'; // Disable link temporarily
+
+            // After a delay, enable the Yes button and allow the user to proceed
+            setTimeout(function() {
+                document.getElementById('yes-button').href = 'thank_you.html'; // Re-enable Yes button
+            }, 2000); // 2 seconds delay before enabling the Yes button
+        }
+    </script>
+
+</body>
+</html>

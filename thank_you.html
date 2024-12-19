@@ -1,0 +1,129 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You, Bucsy! 💖</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff0f5;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+         <   color: #d04a76;
+        }
+        h2 {
+            font-size: 2em;
+            color: #c64e92;
+        }
+        .heart {
+            font-size: 4em;
+            color: red;
+        }
+        .options-section {
+            margin-top: 40px;
+            text-align: left;
+            display: inline-block;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9d1e4;
+        }
+        .options-section input {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .next-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #d04a76;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .next-button:hover {
+            background-color: #c64e92;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Thank you so much, Bucsy! 💖</h1>
+    <h2>I love you so much! 😘</h2>
+    <div class="heart">❤️</div>
+    
+    <div class="options-section">
+        <h2>What would you like to have on our date?</h2>
+        
+        <form id="date-form">
+            <!-- Food Section -->
+            <h3>Choose your favorite food:</h3>
+            <label><input type="checkbox" name="food" value="Pizza"> Pizza</label><br>
+            <label><input type="checkbox" name="food" value="Burger"> Burger</label><br>
+            <label><input type="checkbox" name="food" value="French Fries"> French Fries</label><br>
+            <label><input type="checkbox" name="food" value="Nuggets"> Nuggets</label><br>
+            <label><input type="checkbox" name="food" value="Chowmien"> Chowmien</label><br>
+            <label><input type="checkbox" name="food" value="Chilli Potato"> Chilli Potato</label><br>
+            <label><input type="checkbox" name="food" value="Spring Roll"> Spring Roll</label><br>
+            <label><input type="checkbox" name="food" value="Chicken Strips"> Chicken Strips</label><br>
+            <label><input type="checkbox" name="food" value="kulfi in this freezing weather"> kulfi in this freezing weather</label><br>
+            <label><input type="checkbox" name="food" value="momos (of your choice)"> momos (of your choice)</label><br>
+
+            <!-- Activities Section -->
+            <h3>What activities would you like to do on our date?</h3>
+            <label><input type="checkbox" name="activities" value="Bowling"> Bowling</label><br>
+            <label><input type="checkbox" name="activities" value="Mystery Rooms"> Mystery Rooms</label><br>
+            <label><input type="checkbox" name="activities" value="Badminton"> Badminton</label><br>
+            <label><input type="checkbox" name="activities" value="Movie"> Movie</label><br>
+            <label><input type="checkbox" name="activities" value="Canvas Paintings"> Special Small Canvas Paintings for Both of Us</label><br>
+            <label><input type="checkbox" name="activities" value="just hangout"> just hangout</label><br>
+        </form>
+
+        <p>You may choose as many options as you want, Bucsy! 😘</p>
+    </div>
+
+    <!-- Next Button -->
+    <button id="next-button" class="next-button" onclick="saveSelections()">Next</button>
+
+    <script>
+        function saveSelections() {
+            const form = document.getElementById('date-form');
+            const selectedItems = {
+                food: [],
+                activities: []
+            };
+
+            // Collect food selections
+            const foodCheckboxes = form.querySelectorAll('input[name="food"]:checked');
+            foodCheckboxes.forEach(function(checkbox) {
+                selectedItems.food.push(checkbox.value);
+            });
+
+            // Collect activities selections
+            const activitiesCheckboxes = form.querySelectorAll('input[name="activities"]:checked');
+            activitiesCheckboxes.forEach(function(checkbox) {
+                selectedItems.activities.push(checkbox.value);
+            });
+
+            // Save the selections to localStorage
+            localStorage.setItem('selectedDateItems', JSON.stringify(selectedItems));
+
+            // Redirect to the thank you page
+            window.location.href = "thank_you.html";
+        }
+    </script>
+
+    <!-- Next Button -->
+    <a href="nextpage.html" class="next-button">Next</a>
+
+</body>
+</html>
